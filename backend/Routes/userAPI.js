@@ -2,6 +2,18 @@ const express = require('express');
 const router = express.Router();
 const User = require('../models/user'); // Import the User model
 
+
+router.get('/', async (req, res) => {
+  try {
+    const users = await User.find(); // Fetch all users from the database
+    res.status(200).json(users);
+  } catch (error) {
+    console.error('Error fetching users:', error.message);
+    res.status(500).json({ message: 'Server error' });
+  }
+});
+
+
 // POST API to create a new user
 router.post('/create', async (req, res) => {
   try {
