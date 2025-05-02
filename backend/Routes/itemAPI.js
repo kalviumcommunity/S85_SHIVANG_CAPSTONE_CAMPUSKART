@@ -26,6 +26,23 @@ router.get('/:id', async (req, res) => {
   }
 });
 
+router.put('/:id', async (req, res) => {
+  try {
+    const { name, description, price, category, stock } = req.body;
+    const updatedItem = await Item.findByIdAndUpdate(
+      req.params.id,
+      { name, description, price, category, stock },
+      { new: true, runValidators: true } // Return the updated document and validate the input
+    );
+    if (!updatedItem) {
+      return res.status(404).json({ message: 'Item not found' });
+    }
+    res.status(200).json({ message: 'Item updated successfully', item: updatedItem });
+  } catch (error) {
+    console.error('Error updating item:', error.message);
+    res.status(500).json({ message: 'Server error' });
+  }
+});
 // POST API to create a new item
 router.post('/create', async (req, res) => {
   try {
