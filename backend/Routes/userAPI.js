@@ -13,6 +13,23 @@ router.get('/', async (req, res) => {
   }
 });
 
+router.put('/:id', async (req, res) => {
+  try {
+    const { name, email, password, role } = req.body;
+    const updatedUser = await User.findByIdAndUpdate(
+      req.params.id,
+      { name, email, password, role },
+      { new: true, runValidators: true } // Return the updated document and validate the input
+    );
+    if (!updatedUser) {
+      return res.status(404).json({ message: 'User not found' });
+    }
+    res.status(200).json({ message: 'User updated successfully', user: updatedUser });
+  } catch (error) {
+    console.error('Error updating user:', error.message);
+    res.status(500).json({ message: 'Server error' });
+  }
+});
 
 // POST API to create a new user
 router.post('/create', async (req, res) => {
