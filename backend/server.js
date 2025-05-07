@@ -10,6 +10,7 @@ app.use(express.json());
 // Connect to the database
 connectDB();
 
+
 // Import and use routes
 const userRoutes = require('./Routes/userAPI');
 app.use('/api/users', userRoutes);
