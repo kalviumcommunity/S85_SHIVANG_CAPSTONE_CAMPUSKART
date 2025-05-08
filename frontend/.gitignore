@@ -12,6 +12,10 @@ dist
 dist-ssr
 *.local
 
+Login.jsx
+Register.jsx
+
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
