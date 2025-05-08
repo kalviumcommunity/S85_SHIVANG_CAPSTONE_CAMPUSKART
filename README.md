@@ -1,4 +1,5 @@
-Deployed link: https://s85-shivang-capstone-campuskart.onrender.com
+Backend Deployed link: https://s85-shivang-capstone-campuskart.onrender.com
+Frontend Deployed link: https://681c94b24d92cb32b5108cfb--fascinating-lebkuchen-7aef0f.netlify.app/
 # 🛍️ Capstone Project: **CampusKart**  
 *A Marketplace for Hostel Students*
 
