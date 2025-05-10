@@ -1,22 +1,28 @@
-import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Home from "./pages/Home"; // adjust path if needed
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Home from './pages/Home';
+import Login from './pages/Login';
+import Signup from './pages/Signup';
+import Navbar from './components/Navbar'; // optional if you're not using a separate Navbar
 import './App.css';
-// import Login from "./pages/Login";
-// import Signup from "./pages/Signup";
-// import Marketplace from "./pages/Marketplace";
-// import ChatPage from "./pages/ChatPage"; // your buyer-seller chat page
+import BuyerPage from "./pages/marketplace/BuyerPage";
+import SellerPage from "./pages/marketplace/SellerPage";
+import MarketplaceLanding from "./pages/marketplace/MarketplaceLanding";
+
 
 function App() {
   return (
     <Router>
+      {/* You can comment out <Navbar /> if you're embedding it directly in Home */}
+      {/* <Navbar /> */}
       <Routes>
         <Route path="/" element={<Home />} />
-        {/* <Route path="/login" element={<Login />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
-        <Route path="/marketplace" element={<Marketplace />} />
-        <Route path="/chat" element={<ChatPage />} /> */}
-        {/* Add more routes as needed */}
+     <Route path="/marketplace/buyer" element={<BuyerPage />} />
+    <Route path="/marketplace/seller" element={<SellerPage />} />
+    <Route path="/marketplace" element={<MarketplaceLanding />} />
+
       </Routes>
     </Router>
   );
